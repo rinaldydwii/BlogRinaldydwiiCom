@@ -1,0 +1,48 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+    font-family: $lato;
+    font-size: 16px;
+    font-weight: 400;
+    @include breakpoint(0, 479px) {
+        font-size: 14px;
+    }
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+    @include breakpoint(360px) {
+        padding: 0 15px;
+    }
+    @include breakpoint(576px) {
+        width: 540px;
+    }
+    @include breakpoint(768px) {
+        width: 720px;
+    }
+    @include breakpoint(992px) {
+        width: 960px;
+    }
+    @include breakpoint(1200px) {
+        width: 1140px;
+    }
+}
+
+img {
+	width: 100%;
+}
+
+hr {
+    height: 2px;
+    width: 40px;
+    background: $black;
+    border: none;
+    margin: 12px auto;
+}

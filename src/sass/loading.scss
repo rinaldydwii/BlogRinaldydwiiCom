@@ -1,0 +1,7 @@
+.loading {
+    height: 100vh;
+    background: url(../assets/loading-small.svg) center center no-repeat;
+    @include breakpoint(768px) {
+        background-image: url(../assets/loading-big.svg);
+    }
+}

@@ -1,0 +1,35 @@
+#header {
+    text-align: center;
+    padding: 130px 0 60px;
+
+    .header {
+        &__title {
+            color: $black;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            line-height: 30px;
+            font-size: 20px;
+            @include breakpoint(480px) {
+                line-height: 35px;
+                font-size: 24px;
+            }
+            i {
+                font-style: italic;
+            }
+        }
+        &__quote {
+            color: $grey666;
+            letter-spacing: 0.1em;
+            margin: 0 auto;
+            width: 250px;
+            line-height: 20px;
+            @include breakpoint(480px) {
+                line-height: 23px;
+            }
+        }
+        &__line {
+            // margin: 12px auto;
+        }
+    }
+}
