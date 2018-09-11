@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet';
 import { fetchArticles } from '../actions/ArticleAction';
 
 import Loading from '../components/Loading';
+import Nav from '../components/Navigation';
 import Header from '../components/Header';
 import RecentArticle from '../components/RecentArticle';
 import Footer from '../components/Footer';
@@ -14,13 +15,13 @@ class Index extends React.Component {
         this.props.dispatch(fetchArticles());
     }
     render() {
-        console.log('props home', this.props.articles);
         return (
             this.props.loading ? <Loading></Loading> : 
             <div id="homepage">
                 <Helmet>
                     <title>Home - Blog Rinaldy</title>
                 </Helmet>
+                <Nav></Nav>
                 <Header></Header>
                 <RecentArticle data={ this.props.articles }></RecentArticle>
                 <Footer></Footer>
@@ -31,8 +32,8 @@ class Index extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        loading: state.loading,
-        articles: state.articles,
+        loading: state.articleReducer.loading,
+        articles: state.articleReducer.articles,
     }
 };
 
