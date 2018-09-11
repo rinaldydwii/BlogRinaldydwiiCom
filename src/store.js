@@ -3,9 +3,8 @@ import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 
 const loggerMiddleware = createLogger();
-import articleReducer from './reducers/ArticleReducer';
-// const reducers = combineReducers({testimonialReducer, productReducer, subscribeReducer});
-const reducers = articleReducer;
+import { articleReducer, articleInfoReducer } from './reducers/ArticleReducer';
+const reducers = combineReducers({articleReducer, articleInfoReducer});
 
 export default function configureStore() {
     return createStore(

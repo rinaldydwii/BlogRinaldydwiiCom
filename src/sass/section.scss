@@ -45,15 +45,15 @@
                     margin-bottom: 15px;
                 }
                 @include breakpoint(768px) {
-                    width: 50%;
-                    height: 400px;
+                    width: 25%;
+                    height: 255px;
                     float: left;
                     margin-bottom: 20px;
                     padding: 0 10px;
                 }
                 @include breakpoint(992px) {
-                    width: 33.33%;
-                    height: 385px;
+                    width: 25%;
+                    height: 300px;
                     padding: 0 8px;
                 }
                 @include breakpoint(1200px) {
@@ -119,17 +119,12 @@
                             line-height: 24px;
                         }
                         @include breakpoint(768px) {
+                            margin-top: 5px;
+                        }
+                        @include breakpoint(992px) {
                             font-size: 20px;
                             line-height: 26px;
                             margin-top: 10px;
-                        }
-                        @include breakpoint(992px) {
-                            font-size: 22px;
-                            line-height: 29px;
-                        }
-                        @include breakpoint(1200px) {
-                            font-size: 20px;
-                            line-height: 26px;
                         }
                     }
                     &__date-publish {
