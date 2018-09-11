@@ -1,0 +1,18 @@
+.breadcrumb {
+    margin: 15px 0 10px;
+    line-height: normal;
+    &__item {
+        text-decoration: none;
+        color: $black;
+        &:not(.breadcrumb__active):after {
+            content: '';
+            display: inline-block;
+            background: url(../assets/caret-right.svg) center center no-repeat;
+            width: 15px;
+            height: 10px;
+        }
+    }
+    &__active {
+        color: $grey666;
+    }
+}
