@@ -1,10 +1,12 @@
-import { REQUEST_ARTICLES, RECEIVE_ARTICLES, FAILURE_ARTICLES, REQUEST_ARTICLES_EXCEPT, REQUEST_ARTICLE_INFO, RECEIVE_ARTICLE_INFO, FAILURE_ARTICLE_INFO } from '../actions/ArticleAction';
+import { REQUEST_ARTICLES, RECEIVE_ARTICLES, FAILURE_ARTICLES, REQUEST_ARTICLES_EXCEPT, REQUEST_ARTICLES_BY_TAG, RECEIVE_ARTICLES_BY_TAG, REQUEST_ARTICLE_INFO, RECEIVE_ARTICLE_INFO, FAILURE_ARTICLE_INFO } from '../actions/ArticleAction';
 
 let initialStateArticles = {
     loading: false,
     articles: [],
     canonical: null,
     canonical_code: null,
+    id: null,
+    tag: null,
     error: ''
 };
 
@@ -23,6 +25,12 @@ export const articleReducer = (state = initialStateArticles, action) => {
                 ...state,
                 loading: true,
             }
+        case REQUEST_ARTICLES_BY_TAG:
+            return {
+                ...state,
+                id: action.id,
+                loading: true
+            }
         case REQUEST_ARTICLES_EXCEPT:
             return {
                 ...state,
@@ -34,6 +42,13 @@ export const articleReducer = (state = initialStateArticles, action) => {
             return {
                 ...state,
                 articles: action.articles,
+                loading: false
+            }
+        case RECEIVE_ARTICLES_BY_TAG:
+            return {
+                ...state,
+                articles: action.articles.data,
+                tag: action.articles.tag_name,
                 loading: false
             }
         case FAILURE_ARTICLES:

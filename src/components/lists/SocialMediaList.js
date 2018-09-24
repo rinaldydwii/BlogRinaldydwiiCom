@@ -1,7 +1,15 @@
 import React from 'react';
-import SocialMediaItem from '../items/SocialMediaItem';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faInstagram, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
+
+const SocialMediaItem = (props) => {
+    return (
+        <a className="social-media__item" href={ props.data.url } target="_blank">
+            <FontAwesomeIcon icon={ props.data.icon } size="lg"></FontAwesomeIcon>
+        </a>
+    )
+}
 
 const SocialMediaList = () => {
     let listData = [

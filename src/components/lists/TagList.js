@@ -1,12 +1,13 @@
 import React from 'react';
-import TagItem from '../items/TagItem';
+
+const TagItem = (props) => {
+    return (
+        <a href={'/tag/' + props.data.id } className="tag__item">{ props.data.tag_name }</a>
+    )
+}
 
 const TagList = (props) => {
-    // console.log(props);
-    
     let list = props.data.map((tag, index) => {
-        // console.log(tag);
-        
         return (
             <TagItem data={ tag } key={ index }></TagItem>
         )

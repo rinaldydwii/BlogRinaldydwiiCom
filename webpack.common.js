@@ -1,11 +1,11 @@
-const webpack = require('webpack');
-const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+        app: './src/index.js'
+    },
     output: {
         filename: '[name].[hash].js',
         publicPath: '/'
@@ -47,34 +47,10 @@ module.exports = {
                     }
                 ]
             },
-            // {
-            //     test: /\.(eot|svg|ttf|woff|otf?)(\?[a-z0-9]+)?$/,
-            //     exclude: [/assets/],
-            //     use: [
-            //         {
-            //             loader: "file-loader",
-            //             options: {
-            //                 name: "[name].[ext]",
-            //                 output: 'fonts/',
-            //                 publicPath: '../'
-            //             }
-            //         }
-            //     ]
-            // },
-            {
-                test: /\.(mp4)$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[path][name]-[hash:8].[ext]'
-                        }  
-                    }
-                ]
-            }
         ]
     },
     plugins: [
+        new CleanWebpackPlugin(['dist']),
         new ExtractTextPlugin('public/style.css', {
             filename: 'style-[hash].css',
             disable: false,

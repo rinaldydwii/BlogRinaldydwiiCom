@@ -7,7 +7,6 @@
         text-align: center;
         letter-spacing: 0.2em;
         position: relative;
-        margin-bottom: 20px;
         @include breakpoint(480px) {
             font-size: 20px;
         }
@@ -29,7 +28,7 @@
         .article {
             &__list {
                 text-align: left;
-                margin-bottom: 20px;
+                margin: 20px 0;
                 &:before, &:after {
                     content: '';
                 }
@@ -139,6 +138,13 @@
                             margin-top: 6px;
                         }
                         
+                    }
+                }
+            }
+            &__placeholder {
+                .item {
+                    &__title, &__date-publish {
+                        background: $greyPlaceholder;
                     }
                 }
             }

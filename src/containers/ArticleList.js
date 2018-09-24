@@ -6,18 +6,21 @@ import { fetchArticles } from '../actions/ArticleAction';
 import Loading from '../components/Loading';
 import Container from '../components/Container';
 
-class Index extends React.Component {
+class ArticleList extends React.Component {
     componentDidMount() {
         this.props.dispatch(fetchArticles());
     }
     render() {
         let metaTags = {
-            metatitle: 'Home'
+            metatitle: 'Tulisan',
+            metadesc: 'Daftar tulisan di Blog Rinaldy - Tempat mencurahkan kebahagiaan, kesedihan dan kegalauan.',
+            keywords: 'website, personal, blog, rinaldydwii, rinaldydwiicom, sad, happy, confused, story, tulisan, article'
         };
         return (
             this.props.loading ? <Loading></Loading> : 
-            <Container pageClass='home-page' 
-                recentArticle={{component: true, title: true, data: this.props.articles}} 
+            <Container pageClass='articles-list-page' 
+                breadcrumb={{component: true, page: 'article'}}
+                recentArticle={{component: true, data: this.props.articles}}
                 metaTags={metaTags}
                 >
             </Container>
@@ -32,4 +35,4 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps)(Index);
+export default connect(mapStateToProps)(ArticleList);
